@@ -1,0 +1,36 @@
+services:
+  api:
+    build:
+      context: .
+    command: ["/bin/sh", "-c", "npm run dev"]
+    environment:
+      NODE_ENV: development
+    volumes:
+      - .:/home/node/app
+    ports:
+      - 3000:3000
+
+  database:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: article-api
+    restart: always
+    volumes:
+      - article-api-db:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  redoc:
+    image: redocly/redoc
+    environment:
+      SPEC_URL: http://localhost:3000/open-api.json
+    ports:
+      - 8000:80
+
+volumes:
+  article-api-db:

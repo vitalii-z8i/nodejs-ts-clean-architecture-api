@@ -1,0 +1,5 @@
+require('dotenv').config()
+const { api } = require('../src')
+const config = require('../src/config')
+const port = config.app.port || 3000
+api.listen(port, () => console.log(`API is listening on port ${port}`))

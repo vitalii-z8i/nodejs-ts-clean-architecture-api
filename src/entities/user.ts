@@ -1,0 +1,15 @@
+import Article from "./article"
+import Entity from "./entity"
+
+export default class User extends Entity<User> {
+	id!: number
+	firstName!: string
+	lastName!: string
+	email!: string
+    role!: 'user' | 'admin'
+
+	password!: string
+	salt!: string
+
+	articles?: Article[]
+}
