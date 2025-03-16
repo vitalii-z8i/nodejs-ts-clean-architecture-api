@@ -2,9 +2,7 @@ import { IRequest, IUseCase } from '../interfaces'
 import { User } from '../entities'
 
 export default class UserController {
-  constructor(
-    protected userProfile:  IUseCase<User>,
-  ) {}
+  constructor(protected userProfile: IUseCase<User>) {}
 
   async profile(request: IRequest): Promise<User> {
     const { id } = request?.params as { id: number }

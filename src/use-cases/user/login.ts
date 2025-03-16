@@ -6,25 +6,17 @@ import { ILoginResponse, IUserDAO } from '../../interfaces/user'
 export default class LoginUser implements IUseCase<ILoginResponse> {
   constructor(
     protected userDAO: IUserDAO,
-    protected comparePasswords: (
-      input: string,
-      encrypted: string
-    ) => Promise<boolean>,
+    protected comparePasswords: (input: string, encrypted: string) => Promise<boolean>,
     protected issueToken: (payload: Partial<User>) => string,
   ) {}
 
-  async call(
-    email: string,
-    password: string,
-  ): Promise<ILoginResponse> {
+  async call(email: string, password: string): Promise<ILoginResponse> {
     if (!email || !password) {
       throw new ValidationError('Email and Password are required')
     }
     const user = await this.userDAO.findForAuth(email)
 
-    const passwordsMatch = user
-			? await this.comparePasswords(password, user.password)
-			: false
+    const passwordsMatch = user ? await this.comparePasswords(password, user.password) : false
 
     if (user && passwordsMatch) {
       const { id, firstName, lastName, email, role } = user

@@ -5,9 +5,9 @@ import { UnauthorizedError } from '../../errors'
 
 export default class AuthorizeUser implements IUseCase<User> {
   constructor(
-		protected userDAO: IUserDAO,
-		protected verifyToken: (token: string) => User
-	) {}
+    protected userDAO: IUserDAO,
+    protected verifyToken: (token: string) => User,
+  ) {}
 
   async call(token: string): Promise<User> {
     if (!token) {

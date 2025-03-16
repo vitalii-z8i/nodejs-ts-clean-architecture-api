@@ -14,7 +14,7 @@ app.use(
     origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
-  })
+  }),
 )
 app.use(express.urlencoded({ extended: false }))
 
@@ -32,7 +32,7 @@ app.use('*', (req: express.Request, res: express.Response) => {
 })
 
 app.use(methodOverride())
-app.use((err: IError, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
+app.use((err: IError, _req: express.Request, res: express.Response) => {
   console.error(err)
   res.status(err.httpStatus || 500).send({
     error: err.name,

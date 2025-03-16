@@ -1,3 +1,3 @@
-import IArticleDAO from "./articleDAO"
+import IArticleDAO from './articleDAO'
 
 export { IArticleDAO }

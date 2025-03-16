@@ -7,7 +7,9 @@ export default class AuthController {
     protected registerUser: IUseCase<User>,
     protected loginUser: IUseCase<ILoginResponse>,
     protected authorizeUser: IUseCase<User>,
-    protected userArticles: IUseCase<Pick<Article, 'id' | 'title' | 'description' | 'isPublished'>[]>,
+    protected userArticles: IUseCase<
+      Pick<Article, 'id' | 'title' | 'description' | 'isPublished'>[]
+    >,
     protected updateProfile: IUseCase<boolean>,
   ) {}
 

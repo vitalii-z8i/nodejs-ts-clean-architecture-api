@@ -1,5 +1,5 @@
-import { AuthUser, User } from "../../entities";
-import IPaginated from "../paginated";
+import { AuthUser, User } from '../../entities'
+import IPaginated from '../paginated'
 
 export default interface IUserDAO {
   listUsers(filters: Partial<User>, page: number, perPage: number): Promise<IPaginated<User>>

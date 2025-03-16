@@ -1,4 +1,4 @@
-import MySQLUserDAO from './userDAO';
-import MySQLArticleDAO from './articleDAO';
+import MySQLUserDAO from './userDAO'
+import MySQLArticleDAO from './articleDAO'
 
-export { MySQLUserDAO, MySQLArticleDAO };
+export { MySQLUserDAO, MySQLArticleDAO }

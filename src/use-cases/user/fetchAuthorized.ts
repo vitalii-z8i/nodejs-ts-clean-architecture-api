@@ -1,11 +1,11 @@
-import { User } from "../../entities";
-import { IUseCase } from "../../interfaces";
-import { IUserDAO } from "../../interfaces/user";
+import { User } from '../../entities'
+import { IUseCase } from '../../interfaces'
+import { IUserDAO } from '../../interfaces/user'
 
 export default class FetchAuthorisedUser implements IUseCase<User | null> {
   constructor(
     protected userDAO: IUserDAO,
-    protected verifyToken: (token: string) => User
+    protected verifyToken: (token: string) => User,
   ) {}
 
   async call(token: string): Promise<User | null> {
@@ -16,7 +16,7 @@ export default class FetchAuthorisedUser implements IUseCase<User | null> {
       const { id } = this.verifyToken(token)
       const user = await this.userDAO.findOneBy({ id })
       return user
-    } catch (err) {
+    } catch {
       return null
     }
   }

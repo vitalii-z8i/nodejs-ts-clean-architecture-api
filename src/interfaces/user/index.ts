@@ -1,4 +1,4 @@
-import ILoginResponse from "./loginResponse";
-import IUserDAO from "./userDAO";
+import ILoginResponse from './loginResponse'
+import IUserDAO from './userDAO'
 
-export { ILoginResponse, IUserDAO };
+export { ILoginResponse, IUserDAO }

@@ -1,3 +1,3 @@
-import createUpdate from "./createUpdate";
+import createUpdate from './createUpdate'
 
 export { createUpdate }

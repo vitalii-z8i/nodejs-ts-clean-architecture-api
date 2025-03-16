@@ -10,7 +10,8 @@
     "migrate:new": "db-migrate create $1 --sql-file -m src/infrastructure/data-access/mysql/migrations --config src/infrastructure/data-access/mysql/database.json",
     "migrate:up": "db-migrate up -m src/infrastructure/data-access/mysql/migrations --config src/infrastructure/data-access/mysql/database.json",
     "migrate:down": "db-migrate down -m src/infrastructure/data-access/mysql/migrations --config src/infrastructure/data-access/mysql/database.json",
-    "lint": "npx eslint"
+    "lint": "npx eslint",
+    "lint:fix": "npx eslint --fix"
   },
   "keywords": [
     "nodejs",

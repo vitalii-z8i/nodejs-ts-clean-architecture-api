@@ -1,12 +1,12 @@
-import Article from "./article"
-import Entity from "./entity"
+import Article from './article'
+import Entity from './entity'
 
 export default class User extends Entity<User> {
-	id!: number
-	firstName!: string
-	lastName!: string
-	email!: string
+  id!: number
+  firstName!: string
+  lastName!: string
+  email!: string
   role!: 'user' | 'admin'
 
-	articles?: Article[]
+  articles?: Article[]
 }
