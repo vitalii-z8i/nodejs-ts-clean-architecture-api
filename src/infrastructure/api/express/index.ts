@@ -2,7 +2,6 @@ import express from 'express'
 import logger from 'morgan'
 import cors from 'cors'
 import methodOverride from 'method-override'
-import swaggerJsdoc from 'swagger-jsdoc';
 import router from './routes'
 import { IError } from '../../../interfaces'
 
@@ -18,26 +17,6 @@ app.use(
   })
 )
 app.use(express.urlencoded({ extended: false }))
-
-app.get('/open-api.json', async (_req: express.Request, res: express.Response) => {
-  const options = {
-    failOnErrors: true,
-    definition: {
-      openapi: '3.0.0',
-      info: {
-        title: 'Hello World',
-        version: '1.0.0',
-      },
-    },
-    apis: ['./src/infrastructure/api/express/routes/*.ts'],
-  };
-
-  const swaggerSpec = await swaggerJsdoc(options);
-
-  res.setHeader('Content-Type', 'application/json');
-  res.send(swaggerSpec);
-})
-
 
 app.get('/', async (_req: express.Request, res: express.Response) => {
   res.send({ name: 'Articles API' })
@@ -62,4 +41,4 @@ app.use((err: IError, _req: express.Request, res: express.Response, _next: expre
   })
 })
 
-export { app as api }
+export default app

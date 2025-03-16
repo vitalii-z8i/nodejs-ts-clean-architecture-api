@@ -10,7 +10,7 @@ export default class JOIValidator<T> implements IValidator<T> {
         const errors = result.error
         ? result.error.details.map((ed) => ({ field: ed.path.join('.'), message: ed.message }))
         : []
-        return { data: result.value, errors }
 
+        return { data: result.value, errors }
     }
 }

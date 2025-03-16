@@ -9,7 +9,7 @@ const client = mysql.createPool({
   database: app.database.dbName,
   waitForConnections: true,
   connectionLimit: 5,
-  queueLimit: 0
+  queueLimit: 0,
 })
 
 export default client

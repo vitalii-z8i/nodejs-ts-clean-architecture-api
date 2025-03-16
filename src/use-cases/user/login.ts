@@ -1,5 +1,5 @@
 import { User } from '../../entities'
-import { UnauthorizedError } from '../../errors'
+import { UnauthorizedError, ValidationError } from '../../errors'
 import { IUseCase } from '../../interfaces'
 import { ILoginResponse, IUserDAO } from '../../interfaces/user'
 
@@ -18,19 +18,18 @@ export default class LoginUser implements IUseCase<ILoginResponse> {
     password: string,
   ): Promise<ILoginResponse> {
     if (!email || !password) {
-      throw new Error('Email and Password are required')
+      throw new ValidationError('Email and Password are required')
     }
-    const user = await this.userDAO.findOneBy({ email })
-    console.log(user)
-    console.log('passwird', password)
+    const user = await this.userDAO.findForAuth(email)
+
     const passwordsMatch = user
 			? await this.comparePasswords(password, user.password)
 			: false
 
     if (user && passwordsMatch) {
-      const { id, firstName, lastName, email } = user
+      const { id, firstName, lastName, email, role } = user
       return {
-        user: { id, firstName, lastName, email },
+        user: { id, firstName, lastName, email, role },
         token: this.issueToken({ id, firstName, lastName, email }),
       }
     } else {

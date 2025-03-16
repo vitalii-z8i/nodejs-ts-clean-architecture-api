@@ -6,10 +6,7 @@ export default class User extends Entity<User> {
 	firstName!: string
 	lastName!: string
 	email!: string
-    role!: 'user' | 'admin'
-
-	password!: string
-	salt!: string
+  role!: 'user' | 'admin'
 
 	articles?: Article[]
 }

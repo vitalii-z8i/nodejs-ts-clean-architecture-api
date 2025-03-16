@@ -1,2 +1,4 @@
 import * as user from './user';
-export { user }
+import * as article from './article';
+
+export { user, article }

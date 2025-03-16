@@ -5,6 +5,7 @@
   "scripts": {
     "build": "rm -fr dist/* && tsc",
     "start": "node ./bin/app",
+    "cli": "npm run build && node ./bin/cli",
     "dev": "nodemon ./bin/dev --exec ts-node",
     "migrate:new": "db-migrate create $1 --sql-file -m src/infrastructure/data-access/mysql/migrations --config src/infrastructure/data-access/mysql/database.json",
     "migrate:up": "db-migrate up -m src/infrastructure/data-access/mysql/migrations --config src/infrastructure/data-access/mysql/database.json",
@@ -15,7 +16,7 @@
     "typescript",
     "clean-architecture"
   ],
-  "author": "VTL",
+  "author": "Vitalii-Z8i",
   "license": "MIT",
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
@@ -26,7 +27,6 @@
     "@types/minimist": "^1.2.5",
     "@types/morgan": "^1.9.9",
     "@types/node": "^22.13.9",
-    "@types/swagger-jsdoc": "^6.0.4",
     "dotenv": "^16.4.7",
     "minimist": "^1.2.8",
     "ts-node": "^10.9.2",
@@ -43,7 +43,6 @@
     "method-override": "^3.0.0",
     "morgan": "^1.10.0",
     "mysql2": "^3.12.0",
-    "nodemon": "^3.1.9",
-    "swagger-jsdoc": "^6.2.8"
+    "nodemon": "^3.1.9"
   }
 }

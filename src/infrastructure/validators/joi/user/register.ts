@@ -6,7 +6,12 @@ const registerValidator = Joi.object({
 	lastName: Joi.string().required(),
   email: Joi.string().email().required(),
   password: Joi.string().min(6).required(),
-  confirmPassword: Joi.ref("password"),
+  confirmPassword: Joi.any().valid(Joi.ref('password')).required().options({
+    messages: {
+      'any.required': 'password confirmation is required',
+      'any.only': 'must match password'
+    }
+  }),
 });
 
 export default new JOIValidator(registerValidator);

@@ -8,7 +8,7 @@ export default {
         DAO: MySQLUserDAO,
     },
     article: {
-        validators: {},
+        validators: validators.article,
         DAO: MySQLArticleDAO,
     },
     utils: {

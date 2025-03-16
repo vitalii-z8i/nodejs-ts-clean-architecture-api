@@ -3,7 +3,7 @@ import { IUserDAO } from '../../interfaces/user'
 import { IUseCase } from '../../interfaces'
 import { UnauthorizedError } from '../../errors'
 
-export default class AuthorizeUser implements IUseCase<User> {
+export default class AuthorizeAdmin implements IUseCase<User> {
   constructor(
 		protected userDAO: IUserDAO,
 		protected verifyToken: (token: string) => User
@@ -14,7 +14,7 @@ export default class AuthorizeUser implements IUseCase<User> {
       throw new UnauthorizedError('You`re not authorized')
     }
     const { id } = this.verifyToken(token)
-    const user = await this.userDAO.findOneBy({ id })
+    const user = await this.userDAO.findOneBy({ id, role: 'admin' })
     if (!user) {
       throw new UnauthorizedError('You`re not authorized')
     }
