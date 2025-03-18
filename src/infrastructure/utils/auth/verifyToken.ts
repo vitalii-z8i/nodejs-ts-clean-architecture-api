@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken'
 
-import { app } from '../../config'
-import { User } from '../../entities'
-import { UnauthorizedError } from '../../errors'
+import { app } from '../../../config'
+import { User } from '../../../entities'
+import { UnauthorizedError } from '../../../errors'
 
 export default <T = User>(token: string): T => {
   try {
