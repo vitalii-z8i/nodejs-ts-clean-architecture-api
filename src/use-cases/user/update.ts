@@ -7,10 +7,7 @@ type UserPayload = Pick<
   AuthUser,
   'email' | 'firstName' | 'lastName' | 'password' | 'confirmPassword'
 >
-type AdminPayload = Pick<
-  AuthUser,
-  'email' | 'firstName' | 'lastName' | 'password' | 'confirmPassword' | 'role'
->
+type AdminPayload = UserPayload & { role: 'admin' | 'user' }
 
 export default class UpdateUser implements IUseCase<boolean> {
   constructor(
