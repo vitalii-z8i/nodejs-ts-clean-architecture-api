@@ -28,10 +28,9 @@ const createAdmin = async () => {
     }
     consoleReader.close()
 
-    await controller.createAdmin({ body }).then((admin: User) => {
-      console.log('Admin Created!')
-      console.log(`You can now login with: ${admin.email}`)
-    })
+    const admin: User = await controller.createAdmin({ body })
+    console.log('Admin Created!')
+    console.log(`You can now login with: ${admin.email}`)
   } catch (error) {
     const response = error as IError
     console.log(`${response.name}: ${response.message}`)

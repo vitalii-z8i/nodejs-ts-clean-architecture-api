@@ -1,4 +1,4 @@
-import IUseCase from './use-case'
+import IUseCase from './useCase'
 import IValidator from './validator'
 import IPaginated from './paginated'
 import IRequest from './request'

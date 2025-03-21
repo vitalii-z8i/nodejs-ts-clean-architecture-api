@@ -2,9 +2,9 @@ services:
   api:
     build:
       context: .
-    command: ["/bin/sh", "-c", "npm run dev"]
+    command: ["/bin/sh", "-c", "npm run build && npm run start"]
     environment:
-      NODE_ENV: development
+      NODE_ENV: ${NODE_ENV}
     volumes:
       - .:/home/node/app
     ports:
@@ -13,8 +13,8 @@ services:
   database:
     image: mysql:8.4
     environment:
-      MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: article-api
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+      MYSQL_DATABASE: ${DB_NAME}
     restart: always
     volumes:
       - article-api-db:/var/lib/mysql
