@@ -1,5 +1,10 @@
 import { MySQLArticleDAO, MySQLUserDAO } from '../infrastructure/data-access/mysql'
-import { encryptPassword, issueToken, passwordsMatch, verifyToken } from '../infrastructure/utils/auth'
+import {
+  encryptPassword,
+  issueToken,
+  passwordsMatch,
+  verifyToken,
+} from '../infrastructure/utils/auth'
 import * as validators from '../infrastructure/validation/joi'
 
 export default {

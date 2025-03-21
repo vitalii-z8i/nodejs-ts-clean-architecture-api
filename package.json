@@ -5,8 +5,8 @@
   "scripts": {
     "build": "rm -fr dist/* && tsc",
     "start": "node ./bin/app",
-    "dev": "nodemon ./bin/app --exec ts-node",
-    "cli": "npm run build && node ./bin/cli",
+    "dev": "nodemon ./bin/app",
+    "cli": "node ./bin/cli",
     "migrate:new": "db-migrate create $1 --sql-file -m src/infrastructure/data-access/mysql/migrations --config src/infrastructure/data-access/mysql/database.json",
     "migrate:up": "db-migrate up -m src/infrastructure/data-access/mysql/migrations --config src/infrastructure/data-access/mysql/database.json",
     "migrate:down": "db-migrate down -m src/infrastructure/data-access/mysql/migrations --config src/infrastructure/data-access/mysql/database.json",

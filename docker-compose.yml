@@ -2,7 +2,7 @@ services:
   api:
     build:
       context: .
-    command: ["/bin/sh", "-c", "npm run build && npm run start"]
+    command: ["/bin/sh", "-c", "npm run dev"]
     environment:
       NODE_ENV: ${NODE_ENV}
     volumes:

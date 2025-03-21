@@ -1,8 +1,6 @@
 require('dotenv').config()
 const APP_DIR = process.env.NODE_ENV === 'production' ? 'dist' : 'src'
 
-console.log(process.env.NODE_ENV)
-console.log(APP_DIR)
 const { api } = require(`../${APP_DIR}`)
 const config = require(`../${APP_DIR}/config`)
 const port = config.app.port || 3000
